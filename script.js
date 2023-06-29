@@ -11,10 +11,16 @@ const itemValues = urlParams.getAll('item');
 // Create the HTML list
 const ulElement = document.createElement('ul');
 ulElement.setAttribute('id', 'sortable-list');
+ulElement.setAttribute('class', 'js-sortable sortablejs-custom list-group');
+ulElement.setAttribute('data-hs-sortable-options', `{
+  "animation": 150,
+  "group": "listGroup"
+}`);
 
 // Loop through the item values and create list items
 itemValues.forEach(value => {
   const liElement = document.createElement('li');
+  liElement.setAttribute('class', 'list-group-item');
   liElement.textContent = value;
   ulElement.appendChild(liElement);
 });

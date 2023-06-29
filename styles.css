@@ -4,12 +4,42 @@
   box-sizing: border-box;
 }
 body {
-  font-size: 23px;
+  font-size: 32px;
   margin: 0;
   padding: 0;
-  background-color: #b5aaf5;
+  height: 100%;
+  width: 100%;
+  background-color: #60fde3;
+}
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  justify-content: center;
+}
+.containe {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  padding: 3em 2em;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 0.8em;
+  display: flex;
+
+  flex-direction: column-reverse;
+  justify-content: center;
+
 }
  #sortable-list {
+  position: relative;
+  width:100%;
+  padding-inline-start: 0;
+  list-style-type: none;
+  border-width: 5px;
+  border-color: #0000;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -20,28 +50,16 @@ body {
   }
   
   #sortable-list li input {
-    width: 100%;
+    font-size: 1rem;
 
   }
   
   #sortable-list li input:focus {
     outline: none;
-    box-shadow: 0 0 5px #6c63ff;
+    box-shadow: 0 0 5px #06bedf;
   }
-  .container {
-    font-family: "Poppins", sans-serif;
-    background-color: #ffffff;
-    padding: 3em 2em;
-    width: 90%;
-    max-width: 100svw;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 0.8em;
-    display: flex;
-    flex-direction: column-reverse;
-  }
+  
+ 
   #sortable-list {
     position: relative;
     padding-inline-start: 0;
@@ -50,8 +68,7 @@ body {
     border-color: #0000;
   }
   li {
-    font-size: 2rem;
-    padding: 0.5em 0;
+    padding: 0.7em 0;
     border-radius: 0.2em;
     margin: 1em auto;
     border: 1px solid #000000;
@@ -59,17 +76,36 @@ body {
   }
   li:hover {
     cursor: move;
-    background-color: #d1c9ff;
-    border-color: #8673f2;
-    color: #8673f2;
+    background-color: #60fde3;
+    border-color: #06bedf;
+    color: #60d4e9;
   }
-  #submit {
+  input#submit {
+
+    padding: .7rem;
+    margin-top: 100px;
     font-size: 2rem;
-    padding: 30px;
-    width: 100%;
-    margin-top: 125px;
     
   }
 
+/* When the browser is less then 600px and above */
+@media screen and (max-width: 1000px) {
+  .body {
+    font-size: 26px;
+  }
+}
 
 
+/* Fluid value from 568px to 768px viewport width */
+@media screen and (min-width: 568px) {
+  .body {
+    font-size: calc(32px + 16 * ((100vw - 568px) / (768 - 568));
+  }
+}
+
+/* Fixed maximum value above the maximum breakpoint */
+@media screen and (min-width: 768px) {
+  .body {
+    font-size: 48px;
+  }
+}
